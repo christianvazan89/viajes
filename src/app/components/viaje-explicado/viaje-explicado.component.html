@@ -1,0 +1,115 @@
+<div class="row">
+
+    <div class="card col-12 col-sm-4">
+
+        <div class="card-header text-center bg-primary text-white">
+            <h2>{{viaje.lugar}}</h2>
+            <p class="card-text text-center">{{viaje.fecha_llegada}} -- {{viaje.fecha_vuelta}}</p>
+        </div>
+        <div class="card-body">
+            <img [src]="viaje.img" class="card-img-top" alt="Card image cap">
+        </div>
+        <button type="button" class="btn btn-primary btn-block" [routerLink]="['/home']">Volver atras</button>
+    </div>
+
+    <div class="accordion col-12 col-sm-8" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-size:24px;font-weight:bold">
+                        <i class="fas fa-male"></i>Christian
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+
+                    <div class="card-text">
+                        <i class="fas fa-plane-departure" style='font-size:28px;color:teal'></i> {{viaje.ruta_ida}} -- <a style="font-size:16px;font-weight:bold">{{viaje.vuelo_ida}}</a>
+                        <button type="button" class="btn btn-light" (click)="visible = !visible;"> <i class="fas fa-envelope"></i></button>
+                        <a class="check-element animate-show-hide" *ngIf="visible">   {{viaje.correovuelo_ida}}</a>
+                    </div>
+                    <!--solo en caso se haga escala y tengamos un segundo vuelo de ida-->
+                    <div class="card-text" *ngIf="viaje.vuelo_ida2">
+                        <p id="escala">**********Escala**********</p>
+                        <i class="fas fa-plane-departure" style='font-size:28px;color:teal'></i> {{viaje.ruta_ida2}} -- <a style="font-size:16px;font-weight:bold">{{viaje.vuelo_ida2}}</a>
+                        <button type="button" class="btn btn-light" (click)="visible7 = !visible7;"> <i class="fas fa-envelope"></i></button>
+                        <a class="check-element animate-show-hide" *ngIf="visible7">   {{viaje.correovuelo_ida2}}</a>
+                    </div>
+                    <br><br>
+                    <div class="card-text">
+                        <i class="fas fa-plane-arrival" style='font-size:28px;color:teal'></i> {{viaje.ruta_vuelta}} -- <a style="font-size:16px;font-weight:bold">{{viaje.vuelo_vuelta}}</a>
+                        <button type="button" class="btn btn-light" (click)="visible2 = !visible2;"> <i class="fas fa-envelope"></i></button>
+                        <a class="check-element animate-show-hide" *ngIf="visible2">   {{viaje.correovuelo_vuelta}}</a>
+                    </div>
+
+                    <!--solo en caso se haga escala y tengamos un segundo vuelo de vuelta-->
+                    <div class="card-text" *ngIf="viaje.vuelo_vuelta2">
+                        <p id="escala">**********Escala**********</p>
+                        <i class="fas fa-plane-arrival" style='font-size:28px;color:teal'></i> {{viaje.ruta_vuelta2}} -- <a style="font-size:16px;font-weight:bold">{{viaje.vuelo_vuelta2}}</a>
+                        <button type="button" class="btn btn-light" (click)="visible8 = !visible8;"> <i class="fas fa-envelope"></i></button>
+                        <a class="check-element animate-show-hide" *ngIf="visible8">   {{viaje.correovuelo_vuelta2}}</a>
+                    </div>
+                    <br>
+                    <div class="card-text">
+                        <i class='fas fa-bed' style='font-size:28px;color:teal'></i> {{viaje.hotel}}
+                        <button type="button" class="btn btn-light" (click)="visible3 = !visible3;"> <i class="fas fa-at"></i>
+                        <a class="check-element animate-show-hide" *ngIf="visible3">   {{viaje.webreserva}}</a>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="card" *ngIf="viaje.vuelo_idasan">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn  btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style="font-size:24px;font-weight:bold">
+                    <i class="fas fa-female"></i>Sandra
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <div class="card-text">
+                        <i class="fas fa-plane-departure" style='font-size:28px;color:teal'></i> {{viaje.ruta_ida}} -- <a style="font-size:16px;font-weight:bold">{{viaje.vuelo_idasan}}</a>
+                        <button type="button" class="btn btn-light" (click)="visible4 = !visible4;"> <i class="fas fa-envelope"></i></button>
+                        <a class="check-element animate-show-hide" *ngIf="visible4">   {{viaje.correovuelo_idasan}}</a>
+                    </div>
+
+                    <!--solo en caso se haga escala y tengamos un segundo vuelo de ida-->
+                    <div class="card-text" *ngIf="viaje.vuelo_idasan2">
+                        <p id="escala">**********Escala**********</p>
+                        <i class="fas fa-plane-departure" style='font-size:28px;color:teal'></i> {{viaje.ruta_ida2}} -- <a style="font-size:16px;font-weight:bold">{{viaje.vuelo_idasan2}}</a>
+                        <button type="button" class="btn btn-light" (click)="visible9 = !visible9;"> <i class="fas fa-envelope"></i></button>
+                        <a class="check-element animate-show-hide" *ngIf="visible9">   {{viaje.correovuelo_idasan2}}</a>
+                    </div>
+                    <br><br>
+
+                    <div class="card-text">
+                        <i class="fas fa-plane-arrival" style='font-size:28px;color:teal'></i> {{viaje.ruta_vuelta}} -- <a style="font-size:16px;font-weight:bold">{{viaje.vuelo_vueltasan}}</a>
+                        <button type="button" class="btn btn-light" (click)="visible5 = !visible5;"> <i class="fas fa-envelope"></i></button>
+                        <a class="check-element animate-show-hide" *ngIf="visible5">   {{viaje.correovuelo_vueltasan}}</a>
+                    </div>
+
+                    <!--solo en caso se haga escala y tengamos un segundo vuelo de vuelta-->
+                    <div class="card-text" *ngIf="viaje.vuelo_vueltasan2">
+                        <p id="escala">**********Escala**********</p>
+                        <i class="fas fa-plane-arrival" style='font-size:28px;color:teal'></i> {{viaje.ruta_vuelta2}} -- <a style="font-size:16px;font-weight:bold">{{viaje.vuelo_vueltasan2}}</a>
+                        <button type="button" class="btn btn-light" (click)="visible10 = !visible10;"> <i class="fas fa-envelope"></i></button>
+                        <a class="check-element animate-show-hide" *ngIf="visible10">   {{viaje.correovuelo_vueltasan2}}</a>
+                    </div>
+                    <br>
+                    <div class="card-text">
+                        <i class='fas fa-bed' style='font-size:28px;color:teal'></i> {{viaje.hotel}}
+                        <button type="button" class="btn btn-light" (click)="visible6 = !visible6;"> <i class="fas fa-at"></i>
+                        <a class="check-element animate-show-hide" *ngIf="visible6">   {{viaje.webreserva}}</a>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

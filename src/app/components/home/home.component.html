@@ -1,0 +1,15 @@
+<div class="card-columns">
+    <div class="card" *ngFor="let viaje of viajes; let i=index">
+
+        <div class="card-header text-center bg-primary text-white">
+            <h2>{{viaje.lugar}}</h2>
+            <p class="card-text text-center">{{viaje.fecha_llegada}} -- {{viaje.fecha_vuelta}}</p>
+        </div>
+        <div class="card-body">
+            <img [src]="viaje.img" class="card-img-top" alt="Card image cap"><br><br>
+
+        </div>
+        <!-- <button type="button" class="btn btn-success btn-block" [routerLink]="['/calendario', i]">Calendario Viaje</button> -->
+        <button type="button" class="btn btn-primary btn-block" [routerLink]="['/viaje-explicado', i]">Mas informacion</button>
+    </div>
+</div>
